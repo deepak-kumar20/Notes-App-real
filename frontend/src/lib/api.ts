@@ -134,7 +134,7 @@ export const api = {
       throw new Error('No authentication token found');
     }
 
-    const response = await fetch(`${API_BASE_URL}/profile`, {
+    const response = await fetch(`${API_BASE_URL}/users/profile`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
