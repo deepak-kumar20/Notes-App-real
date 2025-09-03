@@ -27,8 +27,19 @@ app.use(
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: [
+      "Cross-Origin-Opener-Policy",
+      "Cross-Origin-Embedder-Policy",
+    ],
   })
 );
+
+// Add security headers
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
 app.use(express.json());
 
 // Initialize passport only if Google OAuth is configured
