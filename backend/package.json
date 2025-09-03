@@ -1,0 +1,45 @@
+{
+  "name": "notes-app-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Notes App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "npm run validate && npm run check-deps",
+    "validate": "node -c server.js && echo \"✓ Server syntax validation passed\"",
+    "check-deps": "npm audit --audit-level=high && echo \"✓ Dependency security check passed\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "echo \"Dependencies installed successfully\"",
+    "prebuild": "echo \"🔨 Starting build process...\"",
+    "postbuild": "echo \"✅ Build completed successfully - Ready for deployment\""
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "google-auth-library": "^10.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.0",
+    "nodemailer": "^7.0.6",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "notes",
+    "api",
+    "express",
+    "mongodb",
+    "authentication"
+  ],
+  "author": "",
+  "license": "MIT"
+}
