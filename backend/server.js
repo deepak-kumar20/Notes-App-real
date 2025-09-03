@@ -36,6 +36,20 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api/notes', notesRoutes);
 
+// Root route for basic server info
+app.get('/', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'Notes App API Server is running',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth/*',
+      users: '/api/users/*',
+      notes: '/api/notes/*'
+    }
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Notes App Server is running' });
