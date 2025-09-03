@@ -36,8 +36,9 @@ app.use(
 
 // Add security headers
 app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  // Allow popups and cross-origin windows for Google Sign-In
+  res.setHeader("Cross-Origin-Opener-Policy", "unsafe-none");
+  res.setHeader("Cross-Origin-Embedder-Policy", "credentialless");
   next();
 });
 app.use(express.json());
